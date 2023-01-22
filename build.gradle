@@ -1,0 +1,33 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'com.gluonhq.client-gradle-plugin' version '0.1.42'
+
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+}
+
+javafx {
+    version = "19.0.2.1"
+    modules = ["javafx.controls", "javafx.fxml"]
+}
+
+mainClassName = "com.mechanitis.demo.javafxgradle.HelloFX"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+gluonClient {
+    attachConfig {
+        version = "4.0.8"
+        services 'display', 'lifecycle', 'statusbar', 'storage'
+    }
+}
+
+
